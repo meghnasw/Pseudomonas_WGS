@@ -1,3 +1,4 @@
+# Change directory to the folder with the seq_data
 # Step 1: quality check of raw reads
 fastqc data/sample_R1.fastq.gz data/sample_R2.fastq.gz -o results/
 
