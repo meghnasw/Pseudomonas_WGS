@@ -1,4 +1,8 @@
 # Change directory to the folder with the seq_data
+#brew install brewsci/bio/shovill
+#conda install -c bioconda quast
+# conda install -c conda-forge -c bioconda -c defaults prokka
+
 
 # Step 1: quality check of raw reads
 fastqc data/*.fastq.gz -o results/
@@ -12,7 +16,9 @@ multiqc .
   > shovill_output.log 2>&1
 
 # Step 3: check assembly quality
-quast results/spades_out/contigs.fasta -o results/quast_out
+/usr/bin/time -l -o benchmarking.log \
+	quast shovill_out/contigs.fasta -o quast_out \
+	> quast_output.log 2>&1
 
 # Step 4: annotate genes
-prokka --outdir results/prokka_out --prefix sample results/spades_out/contigs.fasta
+prokka --outdir prokka_out --prefix sample shovill_out/contigs.fasta
