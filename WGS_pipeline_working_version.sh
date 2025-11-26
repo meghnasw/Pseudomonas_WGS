@@ -2,6 +2,8 @@
 # Data: running the scripts and storing intermediate files
 # RK server: storing data actually (long term)
 
+## filenames:
+# Use the ones without the U
 # Change directory to the folder with the seq_data
 
 # Step 1: quality check of raw reads
